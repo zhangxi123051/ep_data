@@ -18,4 +18,6 @@ func WebRoute(router *gin.Engine) {
 
 	router.GET("/parseJson", controller.ParseJson)
 	router.GET("/userLogin", controller.UserLogin)
+
+	router.GET("/testJson", controller.TestJson)
 }
