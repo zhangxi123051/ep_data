@@ -2,6 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/zhangxi123051/ep_data/controller"
 	"net/http"
 	"strings"
 )
@@ -14,4 +15,7 @@ func WebRoute(router *gin.Engine) {
 		action = strings.Trim(action, "/")
 		c.String(http.StatusOK, name+" is "+action)
 	})
+
+	router.GET("/parseJson", controller.ParseJson)
+	router.GET("/userLogin", controller.UserLogin)
 }
