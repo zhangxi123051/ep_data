@@ -23,4 +23,11 @@ func WebRoute(router *gin.Engine) {
 
 	router.POST("/produce", controller.Produce)
 	router.POST("/consume", controller.Consume)
+
+	router.POST("/saramaProduce", controller.SaramaProduce)
+	router.POST("/saramaConsume", controller.SaramaConsume)
+
+	//etcd
+	router.POST("/putGet", controller.PutGet)
+	router.POST("/watch", controller.Watch)
 }

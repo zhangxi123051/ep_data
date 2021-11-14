@@ -129,14 +129,17 @@ func Consume(c *gin.Context) {
 }
 
 func SaramaProduce(c *gin.Context) {
-	if len(os.Args) != 3 {
-		fmt.Fprintf(os.Stderr, "Usage: %s <broker> <topic>\n",
-			os.Args[0])
-		os.Exit(1)
-	}
+	//if len(os.Args) != 3 {
+	//	fmt.Fprintf(os.Stderr, "Usage: %s <broker> <topic>\n",
+	//		os.Args[0])
+	//	os.Exit(1)
+	//}
+	//
+	//broker := os.Args[1]
+	//topic := os.Args[2]
 
-	broker := os.Args[1]
-	topic := os.Args[2]
+	broker := "localhost:9092"
+	topic := "sarama"
 
 	config := sarama.NewConfig()
 	config.Producer.Retry.Max = 5
@@ -215,15 +218,19 @@ func (consumer *Consumer) ConsumeClaim(session sarama.ConsumerGroupSession, clai
 }
 
 func SaramaConsume(c *gin.Context) {
-	if len(os.Args) < 4 {
-		fmt.Fprintf(os.Stderr, "Usage: %s <broker> <group> <topics..>\n",
-			os.Args[0])
-		os.Exit(1)
-	}
+	//if len(os.Args) < 4 {
+	//	fmt.Fprintf(os.Stderr, "Usage: %s <broker> <group> <topics..>\n",
+	//		os.Args[0])
+	//	os.Exit(1)
+	//}
+	//
+	//broker := os.Args[1]
+	//group := os.Args[2]
+	//topics := os.Args[3:]
 
-	broker := os.Args[1]
-	group := os.Args[2]
-	topics := os.Args[3:]
+	broker := "localhost:9092"
+	group := "1"
+	topics := []string{"sarama"}
 
 	version, err := sarama.ParseKafkaVersion("2.3.0")
 	if err != nil {
