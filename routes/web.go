@@ -20,4 +20,7 @@ func WebRoute(router *gin.Engine) {
 	router.GET("/userLogin", controller.UserLogin)
 
 	router.GET("/testJson", controller.TestJson)
+
+	router.POST("/produce", controller.Produce)
+	router.POST("/consume", controller.Consume)
 }
